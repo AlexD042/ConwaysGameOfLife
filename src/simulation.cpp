@@ -35,7 +35,8 @@ int Simulation::CountLiveNeighbors(int row, int column) {
 }
 
 void Simulation::Update() {
-    for (int row = 0; row < grid.GetRows(); row++) {
+    if(IsRunning()) {
+        for (int row = 0; row < grid.GetRows(); row++) {
         for (int column = 0; column < grid.GetColumns(); column++) {
             int liveNeighbors = CountLiveNeighbors(row, column);
             int cellValue = grid.GetValue(row, column);
@@ -59,4 +60,17 @@ void Simulation::Update() {
         }
     }
     std::swap(grid, temporaryGrid);
+    }
+}
+
+bool Simulation::IsRunning() {
+    return running;
+}
+
+void Simulation::StartSimulation() {
+    running = true;
+}
+
+void Simulation::StopSimulation() {
+    running = false;
 }

@@ -20,19 +20,36 @@ int main()
     int FPS = 12;
     Color GREY = {29, 29, 29, 255};
 
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Conway's Game of Life");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Conway's Game of Life [STOPPED]");
     SetTargetFPS(FPS);
     Simulation simulation(WINDOW_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
 
     // Simulation Loop
     while(WindowShouldClose() == false) {
         // 1. Event Handling
-        
+        if(IsKeyPressed(KEY_SPACE)) {
+            if (simulation.IsRunning()) {
+                simulation.StopSimulation();
+                SetWindowTitle("Conway's Game of Life [STOPPED]");
+            }
+            else {
+                simulation.StartSimulation();
+                SetWindowTitle("Conway's Game of Life [RUNNING]");
+            }
+        }
+        else if (IsKeyPressed(KEY_UP)) {
+            FPS += 2;
+            SetTargetFPS(FPS);
+        }
+        else if (IsKeyPressed(KEY_DOWN) && FPS > 3) {
+            FPS -= 2;
+            SetTargetFPS(FPS);
+        }
+
         // 2. Updating State
         simulation.Update();
 
         // 3. Drawing
-
         BeginDrawing();
         ClearBackground(GREY);
         simulation.Draw();
