@@ -10,6 +10,7 @@ class Grid {
         bool IsWithinBounds(int row, int column);
         int GetRows();
         int GetColumns();
+        void FillRandomCells();
     private:
         int rows;
         int columns;

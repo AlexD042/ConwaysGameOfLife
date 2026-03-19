@@ -8,6 +8,10 @@
 // 3. Overpopulation: Any live cell with more than three live neighbours dies
 // 4. Reproduction: Any dead cell with exactly three live neighbours becomes a live cell
 
+// Simplified Rules
+// 1. If a cell is alive, it will die when it has fewer than 2 or more than 3 living neighbors, otherwise it lives
+// 2. Any dead cell with exactly three live neighbours becomes a live cell
+
 int main() 
 {
     const int WINDOW_WIDTH =  750;
@@ -19,13 +23,13 @@ int main()
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Conway's Game of Life");
     SetTargetFPS(FPS);
     Simulation simulation(WINDOW_WIDTH, WINDOW_HEIGHT, CELL_SIZE);
-    simulation.SetCellValue(3,4,1);
 
     // Simulation Loop
     while(WindowShouldClose() == false) {
         // 1. Event Handling
         
         // 2. Updating State
+        simulation.Update();
 
         // 3. Drawing
 

@@ -37,3 +37,13 @@ int Grid::GetRows() {
 int Grid::GetColumns() {
     return columns;
 }
+
+// Technically not purely random. It is more likely for a cell to be zero because it looks better.
+void Grid::FillRandomCells() {
+    for (int row = 0; row < rows; row++) {
+        for (int column = 0; column < columns; column++) {
+            int randomValue = GetRandomValue(0, 4);
+            cells[row][column] = (randomValue == 4) ? 1 : 0;
+        }
+    }
+}
