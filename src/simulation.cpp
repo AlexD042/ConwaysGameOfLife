@@ -74,3 +74,21 @@ void Simulation::StartSimulation() {
 void Simulation::StopSimulation() {
     running = false;
 }
+
+void Simulation::ClearGrid() {
+    if(!IsRunning()) {
+        grid.Clear();
+    }
+}
+
+void Simulation::CreateRandomState() {
+    if(!IsRunning()) {
+        grid.FillRandomCells();
+    }
+}
+
+void Simulation::ToggleCell(int row, int column) {
+    if(!IsRunning()) {
+        grid.ToggleCell(row, column);
+    }
+}

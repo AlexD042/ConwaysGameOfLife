@@ -3,7 +3,7 @@
 
 class Simulation {
     public:
-        Simulation(int width, int height, int cellSize) : grid(width, height, cellSize), temporaryGrid(width, height, cellSize), running(false) {grid.FillRandomCells();};
+        Simulation(int width, int height, int cellSize) : grid(width, height, cellSize), temporaryGrid(width, height, cellSize), running(false) {};
         void Draw();
         void SetCellValue(int row, int column, int value);
         int CountLiveNeighbors(int row, int column); 
@@ -11,6 +11,9 @@ class Simulation {
         bool IsRunning();
         void StartSimulation();
         void StopSimulation();
+        void ClearGrid();
+        void CreateRandomState();
+        void ToggleCell(int row, int column);
     private:
         Grid grid;
         Grid temporaryGrid;
