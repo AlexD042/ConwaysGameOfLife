@@ -16,7 +16,7 @@ int main()
 {
     const int WINDOW_WIDTH =  1200;
     const int WINDOW_HEIGHT = 800;
-    const int CELL_SIZE = 5; // window height or width divided by 25
+    const int CELL_SIZE = 10; // window height or width divided by 25
     int FPS = 12;
     Color GREY = {29, 29, 29, 255};
 
