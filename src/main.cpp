@@ -8,9 +8,9 @@
 // 3. Overpopulation: Any live cell with more than three live neighbours dies
 // 4. Reproduction: Any dead cell with exactly three live neighbours becomes a live cell
 
-// Simplified Rules
+// Simplified Rules for Conway's Game of Life
 // 1. If a cell is alive, it will die when it has fewer than 2 or more than 3 living neighbors, otherwise it lives
-// 2. Any dead cell with exactly three live neighbours becomes a live cell
+// 2. Any dead cell with exactly three live neighbours becomes a live cell, otherwise it stays dead
 
 int main() 
 {
